@@ -14,7 +14,7 @@ public class CredentialManager {
     private String recipient;
 
     private String PATH = "";
-    private String osType = System.getProperty("os.name");
+    private final String osType = System.getProperty("os.name");
     
     // Constructor
     public CredentialManager(String username, String password, String subject, String recipient) {
@@ -47,10 +47,18 @@ public class CredentialManager {
 
                 fileWriter = new FileWriter(PATH);
                 
-                fileWriter.write("email=" + "\n");
-                fileWriter.write("password=" + "\n");
-                fileWriter.write("subject=" + "\n");
-                fileWriter.write("recipient=" + "\n");
+                fileWriter.write("""
+                                 email=
+                                 """);
+                fileWriter.write("""
+                                 password=
+                                 """);
+                fileWriter.write("""
+                                 subject=
+                                 """);
+                fileWriter.write("""
+                                 recipient=
+                                 """);
 
                 fileWriter.close();
 
