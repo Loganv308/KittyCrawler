@@ -1,13 +1,13 @@
 package com.lvelier;
 
 import javax.mail.Authenticator;
+import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.BodyPart;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
@@ -71,10 +71,10 @@ public class EmailSender {
                 multipart.addBodyPart(messageBodyPart);
                 mimeMessage.setContent(multipart);
 
-                System.out.println("Attempting to connect using:");
-                System.out.println("SMTP Host: " + emailAccount.getProperties().getProperty("mail.smtp.host"));
-                System.out.println("Email: " + emailAccount.getAddress());
-                System.out.println("Password length: " + emailAccount.getPassword().length());
+                // System.out.println("Attempting to connect using:");
+                // System.out.println("SMTP Host: " + emailAccount.getProperties().getProperty("mail.smtp.host"));
+                // System.out.println("Email: " + emailAccount.getAddress());
+                // System.out.println("Password length: " + emailAccount.getPassword().length());
 
                 try {
                     Transport transport = emailAccount.getSession().getTransport();

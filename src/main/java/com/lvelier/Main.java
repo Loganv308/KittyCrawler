@@ -23,23 +23,20 @@ public class Main {
             String cats = scraper.run();
             emailSender.setContent(cats);
             switch (emailLoginResult) {
-                case SUCCESS:
+                case SUCCESS -> {
                     if (cats.isBlank()) {
                         System.out.println("No available cats.");
                     } else {
                         System.out.println(cats);
                     }
                     emailSender.sendEmail();
-                    break;
-                case FAILED_BY_CREDENTIALS:
-                    System.out.println("Failed by credentials");
-                    break;
-                case FAILED_BY_UNEXPECTED_ERROR:
-                    System.out.println("Failed by unexpected Error");
-                    break;
-                default:
+                }
+                case FAILED_BY_CREDENTIALS -> System.out.println("Failed by credentials");
+                case FAILED_BY_UNEXPECTED_ERROR -> System.out.println("Failed by unexpected Error");
+                default -> {
                     return;
-            } 
+                } 
+            }
             try {
                 Thread.sleep(1000*60*60*2);
                 //Thread.sleep(6000);
