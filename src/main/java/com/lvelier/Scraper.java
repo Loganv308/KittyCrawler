@@ -59,13 +59,13 @@ public class Scraper {
         for (Cat cat : cats) {
             System.out.println(cat.toDisplayString());
 
-            if (!(cat.getPrice().toUpperCase().contains("SOLD") ||
-                cat.getPrice().toUpperCase().contains("NOT FOR") || 
-                cat.getPrice().toUpperCase().contains("RESERVED") ||  
-                cat.getPrice().toUpperCase().contains("HOLD") ||
+            if ((!cat.getPrice().toUpperCase().contains("SOLD") &&
+                !cat.getPrice().toUpperCase().contains("NOT FOR") && 
+                !cat.getPrice().toUpperCase().contains("RESERVED") &&  
+                !cat.getPrice().toUpperCase().contains("HOLD") &&
 
                 // Added this last scenario because it tries to add it to the email as invalid data.
-                cat.getType().toUpperCase().contains("SPHYNX-CATTERY.COM"))) {
+                !cat.getType().toUpperCase().contains("SPHYNX-CATTERY.COM"))) {
 
                 // The 
                 result += cat.toDisplayString() + "<br>";
